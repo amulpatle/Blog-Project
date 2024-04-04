@@ -5,18 +5,13 @@
 {% block title %} My Blog {% endblock %}
 <!--  -->
 {%block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}" />
 <link rel="stylesheet" href="{% static 'blog/index.css' %}" />
 
 {% endblock %}
 
 <!-- --------- -->
 {% block content %}
-<header id="main-navigation">
-  <h1><a href="">Amul'Blog</a></h1>
-  <nav>
-    <a href="">All Posts</a>
-  </nav>
-</header>
 
 <section id="welcome">
   <header>
@@ -32,24 +27,11 @@
 <section id="latest-posts">
   <h2>My latest Thoughts</h2>
   <ul>
-    <li>
-      <article class="posts">
-        <a href="">
-          <img
-            src="{% static 'blog/images/mountains.jpg' %}"
-            alt="Mountain-Hiking"
-          />
-          <div class="post__content">
-            <h3>Mountain Hiking</h3>
-            <p>
-              There's nothing like the views you get when hiiking in the
-              mountains! And I wasn't even prepared for what happened whilist I
-              was enjoyign the view
-            </p>
-          </div>
-        </a>
-      </article>
-    </li>
+    {% for post in posts %}
+    <!-- ---- -->
+    {% include "blog/includes/post.html" %}
+    <!-- it will prevent auto fomating -->
+    {% endfor %}
   </ul>
 </section>
 <section id="about">
