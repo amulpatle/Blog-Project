@@ -14,7 +14,7 @@ def get_date(post):
 def starting_page(request):
     latest_posts = Post.objects.all().order_by("-date")[:3]
     return render(request,"blog/index.html",{
-        "posts":latest_posts,
+        "posts":latest_posts
     })
 
 def posts(request):
